@@ -46,7 +46,6 @@ userController.login = (req,res) => {
                              email: user.email
                           }
                           const token = jwt.sign(tokenData,  'dct@123', {expiresIn : '60d' })
-                          //console.log(token)
                           res.json({ token : `Bearer ${token}`})
                       } else {
                          res.json({ errors: 'invalid email or password'})
@@ -58,15 +57,7 @@ userController.login = (req,res) => {
 }
 
 userController.account = (req, res) => {
-   //console.log(req.user)
-   res.json(req.user)
-   // User.findOne( { _id: req.user._id})
-   //    .then((user) => {
-   //        res.json(user)
-   //    })
-   //    .catch((err) => {
-   //        res.json(err)
-   //    })
+   res.json(req.user)   
 }
 
 module.exports = userController

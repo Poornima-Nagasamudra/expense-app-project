@@ -65,7 +65,6 @@ profileController.updateImage = (req, res) => {
       const id = req.params.id 
       const body = req.body 
       body.avatar = req.file.path 
-      //console.log(body)
       Profile.findOneAndUpdate({_id: id, userId: req.user._id}, body, {new:true, runValidators:true})
       .then((profile)=> {
          res.json(profile)

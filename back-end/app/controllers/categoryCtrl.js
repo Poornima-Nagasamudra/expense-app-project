@@ -5,7 +5,6 @@ const categoryController = {}
 categoryController.list = (req, res) => {
     Category.find( { userId : req.user._id})
         .then((cat)=> {
-            //console.log(cat)
             res.json(cat)
         })
         .catch((err)=> {
